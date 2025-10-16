@@ -1,72 +1,788 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio - Jazmín Gaido</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
-  <!-- Sección principal -->
-  <header class="hero">
-    <h1>Hola, soy Jazmin Gaido 👋</h1>
-    <p>Analista de Sistemas Jr. con experiencia en desarrollo web, soporte técnico y documentación.</p>
-    <div class="buttons">
-      <a href="#proyectos" class="btn">Ver mis proyectos</a>
-      <a href="assets/CV_Jazmin_Gaido.pdf" class="btn" download>Descargar CV</a>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio profesional de Jazmin Abigail Gaido, Analista de Sistemas y Desarrolladora Web Junior."
+    />
+    <title>Jazmin Abigail Gaido | Portfolio</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@2.15.1/devicon.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+    />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-16x16.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Loader  -->
+    <div
+      class="loader"
+      id="loader"
+      aria-live="polite"
+      aria-label="Cargando portfolio"
+    >
+      <div class="loader-text">
+        <span class="loader-cursor" aria-hidden="true"></span>
+        Cargando portfolio de Jazmin Gaido...
+      </div>
     </div>
-  </header>
+    <div class="gradient-background" aria-hidden="true"></div>
+    <header class="navbar" id="navbar">
+      <div class="container nav-content">
+        <a href="#inicio" class="brand" aria-label="Volver al inicio">
+          <img
+            src="assets/favicon-32x32.png"
+            alt=""
+            class="brand-icon"
+            role="presentation"
+          />
+        </a>
 
-  <!-- Sección Sobre mí -->
-  <section id="sobre-mi">
-    <h2>Sobre mí</h2>
-    <p>
-      Soy Analista de Sistemas Jr. con formación sólida en programación, bases de datos y diseño responsive.
-      Tengo experiencia en desarrollo web, soporte técnico y documentación funcional. He trabajado en proyectos 
-      aplicados como el sistema de gestión para un restaurante (*Piccolo Burgers*), además de atención al cliente 
-      y administración. Me motiva seguir aprendiendo y aportar a equipos dinámicos donde se valore la versatilidad.
-    </p>
+        <nav>
+          <ul class="nav-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre-mi">Sobre mí</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#habilidades">Habilidades</a></li>
+            <li><a href="#experiencia">Experiencia</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </nav>
+        <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
 
-    <h3>Experiencia</h3>
-    <ul>
-      <li><strong>Encargada de Atención y Administración – Piccolo Burgers (2022 – Actualidad)</strong><br>
-      Gestión de pedidos, stock, proveedores, digitalización de procesos e implementación de sistema interno.</li>
-      <li><strong>Técnica en Reparación de PCs y Laptops – Freelance (2024 – Actualidad)</strong><br>
-      Diagnóstico, reparación, instalación de sistemas operativos y optimización de rendimiento.</li>
-      <li><strong>Gestión de Redes Sociales – Piccolo Burgers</strong><br>
-      Administración de perfiles, comunicación con clientes y diseño de contenido.</li>
-    </ul>
+    <main>
+      <!-- Hero -->
+      <section id="inicio" class="hero" data-aos="fade-up">
+        <div class="hero-illustrations" aria-hidden="true" data-parallax="0.12">
+          <div class="hero-icon"></div>
+          <div class="hero-icon"></div>
+          <div class="hero-icon"></div>
+          <div class="hero-icon"></div>
+        </div>
 
-    <h3>Proyecto Destacado</h3>
-    <p>
-      <strong>Sistema Web para Restaurante (Tesis):</strong> Desarrollo fullstack con HTML5, CSS3, JavaScript, PHP, C# y MySQL. 
-      Incluye funciones CRUD, control de stock, pedidos y reportes. Diseño responsive y documentación completa.
-    </p>
+        <div class="container hero-content">
+          <div class="hero-text" data-aos="fade-right">
+            <p class="hero-intro">Hola, soy</p>
+            <h1>Jazmin Abigail Gaido <span class="wave">👋</span></h1>
+            <h2>Analista de Sistemas y Desarrolladora Web Junior</h2>
+            <p class="hero-description">
+              Apasionada por la tecnología, el diseño web y la creación de
+              soluciones que optimicen la vida de las personas. Me especializo
+              en desarrollo fullstack, soporte técnico y documentación
+              funcional.
+            </p>
+            <div class="hero-actions">
+              <a href="#proyectos" class="btn primary-btn">Ver mis proyectos</a>
+              <a href="#contacto" class="btn secondary-btn">Contáctame</a>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true" data-aos="fade-left">
+            <div class="floating-card">
+              <i class="fas fa-laptop-code"></i>
+              <p>Código limpio, soluciones creativas.</p>
+            </div>
+            <div class="floating-card delay">
+              <i class="fas fa-lightbulb"></i>
+              <p>Innovación constante.</p>
+            </div>
+          </div>
+        </div>
+      </section>
 
-    <h3>Habilidades Técnicas</h3>
-    <ul>
-      <li><strong>Lenguajes:</strong> C#, Java, JavaScript, PHP, Python (en formación), SQL, HTML5, CSS3</li>
-      <li><strong>Bases de Datos:</strong> MySQL, SQL Server, MongoDB</li>
-      <li><strong>Herramientas:</strong> Visual Studio, VS Code, Eclipse, NetBeans, XAMPP, Git, GitHub, Postman</li>
-      <li><strong>Frameworks:</strong> Express.js, Node.js, Bootstrap, Tailwind CSS</li>
-      <li><strong>Sistemas Operativos:</strong> Windows, Linux</li>
-    </ul>
+      <!-- Servicios -->
+      <section id="servicios" class="services" data-aos="fade-up">
+        <div class="container">
+          <h3>Lo que puedo ofrecer</h3>
+          <p class="section-subtitle">
+            Servicios orientados a potenciar tus proyectos digitales
+          </p>
+          <div class="services-grid">
+            <article
+              class="service-card"
+              aria-label="Servicio de desarrollo web"
+              tabindex="0"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="service-icon" aria-hidden="true">
+                <i class="fa-solid fa-code"></i>
+              </div>
+              <h4>Desarrollo Web</h4>
+              <p>
+                Diseño y desarrollo de sitios web responsivos, accesibles y
+                optimizados para brindar experiencias memorables.
+              </p>
+            </article>
+            <article
+              class="service-card"
+              aria-label="Servicio de soporte técnico"
+              tabindex="0"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="service-icon" aria-hidden="true">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+              </div>
+              <h4>Soporte Técnico</h4>
+              <p>
+                Diagnóstico, mantenimiento preventivo y soluciones rápidas para
+                garantizar el funcionamiento continuo de tus sistemas.
+              </p>
+            </article>
+            <article
+              class="service-card"
+              aria-label="Servicio de documentación funcional"
+              tabindex="0"
+              data-aos="fade-up"
+              data-aos-delay="300"
+            >
+              <div class="service-icon" aria-hidden="true">
+                <i class="fa-solid fa-file-lines"></i>
+              </div>
+              <h4>Documentación Funcional</h4>
+              <p>
+                Elaboración de documentación clara y ordenada para equipos
+                técnicos y áreas de negocio, asegurando procesos eficientes.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
 
-    <h3>Idiomas</h3>
-    <p>Español (nativo) • Inglés (B2/C1)</p>
-  </section>
+      <!-- Sobre mí -->
+      <section id="sobre-mi" class="about" data-aos="fade-right">
+        <div class="container about-content">
+          <div class="about-image" data-aos="fade-right">
+            <div class="avatar" role="img" aria-label="Retrato de Jazmin Gaido">
+              <img src="assets/avatar.png" alt="Fotografía de Jazmin Gaido" />
+            </div>
+          </div>
+          <div class="about-text" data-aos="fade-left">
+            <h3>Sobre mí</h3>
+            <p>
+              Soy Analista de Sistemas graduada en IES Siglo 21 (Córdoba,
+              Argentina). Tengo experiencia en desarrollo web fullstack,
+              documentación funcional y digitalización de procesos. He trabajado
+              en proyectos reales como el sistema interno de gestión de pedidos
+              de Piccolo Burgers y mi proyecto de tesis: un sistema web para
+              restaurantes desarrollado con HTML, CSS, JavaScript, PHP, C# y
+              MySQL.
+            </p>
+            <blockquote>
+              “Busco seguir creciendo en el mundo IT, aprendiendo cada día algo
+              nuevo.”
+            </blockquote>
+            <ul class="about-highlights">
+              <li>
+                <i class="fa-solid fa-diagram-project" aria-hidden="true"></i
+                ><span>Gestión integral de proyectos tecnológicos.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i
+                ><span>Buenas prácticas de seguridad y documentación.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-users" aria-hidden="true"></i
+                ><span
+                  >Trabajo colaborativo con equipos multidisciplinarios.</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
 
-  <!-- Sección de proyectos -->
-  <section id="proyectos">
-    <h2>Mis proyectos</h2>
-    <p>Aquí encontrarás algunos de mis proyectos destacados.</p>
-    <!-- Luego podés agregar cards o links a repositorios -->
-  </section>
+      <!-- Habilidades -->
+      <section id="habilidades" class="skills" data-aos="fade-up">
+        <div class="container">
+          <h3>Habilidades</h3>
+          <p class="section-subtitle">Tecnologías y herramientas que domino</p>
+          <div class="skills-grid">
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="100">
+              <h4>Lenguajes</h4>
+              <ul>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-csharp-plain"
+                      title="C#"
+                      aria-label="C#"
+                    ></i
+                    >C#</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-java-plain"
+                      title="Java"
+                      aria-label="Java"
+                    ></i
+                    >Java</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-javascript-plain"
+                      title="JavaScript"
+                      aria-label="JavaScript"
+                    ></i
+                    >JavaScript</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-php-plain"
+                      title="PHP"
+                      aria-label="PHP"
+                    ></i
+                    >PHP</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-python-plain"
+                      title="Python"
+                      aria-label="Python"
+                    ></i
+                    >Python</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="fa-solid fa-database"
+                      title="SQL"
+                      aria-label="SQL"
+                    ></i
+                    >SQL</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-html5-plain"
+                      title="HTML5"
+                      aria-label="HTML5"
+                    ></i
+                    >HTML5</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-css3-plain"
+                      title="CSS3"
+                      aria-label="CSS3"
+                    ></i
+                    >CSS3</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="200">
+              <h4>Bases de Datos</h4>
+              <ul>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-mysql-plain"
+                      title="MySQL"
+                      aria-label="MySQL"
+                    ></i
+                    >MySQL</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="fa-solid fa-server"
+                      title="SQL Server"
+                      aria-label="SQL Server"
+                    ></i
+                    >SQL Server</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-mongodb-plain"
+                      title="MongoDB"
+                      aria-label="MongoDB"
+                    ></i
+                    >MongoDB</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="300">
+              <h4>Frameworks</h4>
+              <ul>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-express-original"
+                      title="Express.js"
+                      aria-label="Express.js"
+                    ></i
+                    >Express.js</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-nodejs-plain"
+                      title="Node.js"
+                      aria-label="Node.js"
+                    ></i
+                    >Node.js</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-bootstrap-plain"
+                      title="Bootstrap"
+                      aria-label="Bootstrap"
+                    ></i
+                    >Bootstrap</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <div class="skill-category" data-aos="fade-up" data-aos-delay="400">
+              <h4>Herramientas</h4>
+              <ul>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-visualstudio-plain"
+                      title="Visual Studio"
+                      aria-label="Visual Studio"
+                    ></i
+                    >Visual Studio</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-vscode-plain"
+                      title="Visual Studio Code"
+                      aria-label="Visual Studio Code"
+                    ></i
+                    >VS Code</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-git-plain"
+                      title="Git"
+                      aria-label="Git"
+                    ></i
+                    >Git &amp; GitHub</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="fa-solid fa-server"
+                      title="XAMPP"
+                      aria-label="XAMPP"
+                    ></i
+                    >XAMPP</span
+                  >
+                </li>
+                <li>
+                  <span class="skill-item"
+                    ><i
+                      class="devicon-postman-plain"
+                      title="Postman"
+                      aria-label="Postman"
+                    ></i
+                    >Postman</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>📫 Contacto: <a href="mailto:jazmingaidoyxs@gmail.com">jazmingaidoyxs@gmail.com</a> · 
-    <a href="https://github.com/yasheyxs" target="_blank">GitHub</a></p>
-  </footer>
-</body>
+      <!-- Experiencia -->
+      <section id="experiencia" class="experience" data-aos="fade-up">
+        <div class="container">
+          <h3>Experiencia</h3>
+          <div class="experience-grid">
+            <article
+              class="experience-card"
+              tabindex="0"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="experience-header">
+                <h4>
+                  <i class="fa-solid fa-headset" aria-hidden="true"></i> Piccolo
+                  Burgers
+                </h4>
+                <span class="time">2022 – Actualidad</span>
+              </div>
+              <h5>Encargada de Atención y Administración</h5>
+              <ul>
+                <li>Gestión de pedidos presenciales y digitales.</li>
+                <li>Control de stock, proveedores y tareas administrativas.</li>
+                <li>Soporte técnico y digitalización de procesos.</li>
+              </ul>
+            </article>
+            <article
+              class="experience-card"
+              tabindex="0"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div class="experience-header">
+                <h4>
+                  <i
+                    class="fa-solid fa-screwdriver-wrench"
+                    aria-hidden="true"
+                  ></i>
+                  Freelance
+                </h4>
+                <span class="time">2024 – Actualidad</span>
+              </div>
+              <h5>Técnica en reparación de PCs y laptops</h5>
+              <ul>
+                <li>Diagnóstico, mantenimiento y asesoramiento técnico.</li>
+                <li>
+                  Instalación de sistemas operativos y optimización de
+                  rendimiento.
+                </li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Proyectos -->
+      <section id="proyectos" class="projects" data-aos="fade-up">
+        <div class="container">
+          <h3>Proyectos Destacados</h3>
+          <div class="projects-grid">
+            <article
+              class="project-card principal"
+              tabindex="0"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="project-tag">Fullstack</div>
+              <h4>Sistema Web para Restaurante (Tesis)</h4>
+              <p>
+                Desarrollado con HTML5, CSS3, JavaScript, PHP, Bootstrap y
+                MySQL. Flujo y manejo de pedidos e inventario y diseño responsive.
+              </p>
+              <ul
+                class="project-details"
+                aria-label="Detalles del proyecto de tesis"
+              >
+                <li>
+                  <i class="fa-solid fa-gauge-high" aria-hidden="true"></i>Panel
+                  intuitivo para seguimiento en tiempo real.
+                </li>
+                <li>
+                  <i class="fa-solid fa-mobile-screen" aria-hidden="true"></i
+                  >Diseño adaptable a móviles, tablets y escritorio.
+                </li>
+                <li>
+                  <i class="fa-solid fa-shield" aria-hidden="true"></i>Gestión
+                  segura de usuarios y permisos.
+                </li>
+              </ul>
+              <a
+                href="https://github.com/yasheyxs/piccoloBurgers"
+                target="_blank"
+                rel="noopener"
+                class="project-link"
+              >
+                <i class="fab fa-github"></i> Ver repositorio
+              </a>
+            </article>
+            <article
+              class="project-card principal"
+              tabindex="0"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              <div class="project-tag">Desktop App</div>
+              <h4>Sistema de Gestión – Piccolo Burgers</h4>
+              <p>
+                Desarrollada con C# (.NET) y
+                WinForms para la gestión completa de un restaurante. Gestión total y generación de reportes pertinentes.
+              </p>
+              <ul
+                class="project-details"
+                aria-label="Detalles del sistema Piccolo Burgers"
+              >
+                <li>
+                  <i class="fa-solid fa-database" aria-hidden="true"></i>Base de
+                  datos SQL Server LocalDB con respaldo y configuración
+                  sencilla.
+                </li>
+                <li>
+                  <i class="fa-solid fa-layer-group" aria-hidden="true"></i
+                  >Estructura en capas (Entidad, Datos, Negocio, Presentación)
+                  para mayor mantenibilidad.
+                </li>
+                <li>
+                  <i class="fa-solid fa-file-lines" aria-hidden="true"></i
+                  >Reportes automáticos en PDF y Excel mediante ClosedXML e
+                  iTextSharp.
+                </li>
+              </ul>
+              <a
+                href="https://github.com/yasheyxs/piccoloSistemaGestion"
+                target="_blank"
+                rel="noopener"
+                class="project-link"
+              >
+                <i class="fab fa-github"></i> Ver repositorio
+              </a>
+            </article>
+
+            <article
+              class="project-card soon"
+              tabindex="0"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <h4>Próximo Proyecto</h4>
+              <p>Espacio reservado para nuevas ideas. ¡Mantente al tanto!</p>
+              <ul
+                class="project-details"
+                aria-label="Detalles del próximo proyecto"
+              >
+                <li>
+                  <i class="fa-solid fa-lightbulb" aria-hidden="true"></i>Idea
+                  en iteración con foco en UX.
+                </li>
+                <li>
+                  <i class="fa-solid fa-people-group" aria-hidden="true"></i
+                  >Abierta a colaboraciones multidisciplinarias.
+                </li>
+              </ul>
+              <button class="btn ghost-btn" disabled>Muy pronto</button>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Educación -->
+      <section id="educacion" class="education" data-aos="fade-up">
+        <div class="container">
+          <h3>Educación</h3>
+          <div class="timeline">
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+              <div class="timeline-content">
+                <div class="timeline-icon" aria-hidden="true">
+                  <i
+                    class="fa-solid fa-graduation-cap"
+                    title="Analista de Sistemas"
+                  ></i>
+                </div>
+                <h4>Analista de Sistemas de Computación – IES Siglo 21</h4>
+                <p>Córdoba, Argentina</p>
+                <span class="time">Graduada – Octubre 2025</span>
+              </div>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+              <div class="timeline-content">
+                <div class="timeline-icon" aria-hidden="true">
+                  <i
+                    class="fa-solid fa-book"
+                    title="Economía y Administración"
+                  ></i>
+                </div>
+                <h4>Título en Economía y Administración – IPEM N°148 JMP</h4>
+                <p>Graduada con honores</p>
+                <span class="time">2021</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Idiomas -->
+      <section id="idiomas" class="languages" data-aos="fade-up">
+        <div class="container">
+          <h3>Idiomas</h3>
+          <div class="language-grid">
+            <div class="language-card" data-aos="fade-up" data-aos-delay="100">
+              <img
+                src="https://flagcdn.com/w40/ar.png"
+                alt="Bandera de Argentina"
+                loading="lazy"
+              />
+              <br /><br />
+              <h4>Español</h4>
+              <p>Nativo</p>
+            </div>
+            <div class="language-card" data-aos="fade-up" data-aos-delay="200">
+              <img
+                src="https://flagcdn.com/w40/gb.png"
+                alt="Bandera del Reino Unido"
+                loading="lazy"
+              />
+              <br /><br />
+              <h4>Inglés</h4>
+              <p>Nivel B2/C1 (lectura, escritura y conversación)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contacto -->
+      <section id="contacto" class="contact" data-aos="fade-up">
+        <div class="container contact-grid">
+          <div class="contact-text" data-aos="fade-right">
+            <h3>Contacto</h3>
+            <p>
+              ¿Tienes un proyecto en mente o una oportunidad para colaborar?
+              ¡Estoy lista para escucharte!
+            </p>
+            <div class="contact-links">
+              <a
+                href="https://github.com/yasheyxs"
+                target="_blank"
+                rel="noopener"
+                ><i class="fab fa-github"></i> GitHub</a
+              >
+              <a href="mailto:jazmingaidoyxs@gmail.com"
+                ><i class="fas fa-envelope"></i> jazmingaidoyxs@gmail.com</a
+              >
+              <span class="link-disabled"
+                ><i class="fab fa-linkedin"></i> LinkedIn (próximamente)</span
+              >
+            </div>
+          </div>
+          <form
+            class="contact-form"
+            id="contactForm"
+            action="https://formspree.io/f/xldpaozg"
+            method="POST"
+            data-aos="fade-left"
+            data-aos-delay="150"
+          >
+            <h4>Escríbeme</h4>
+            <label for="name">Nombre</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Ingresa tu nombre"
+              required
+            />
+
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="tu@email.com"
+              required
+            />
+
+            <label for="message">Mensaje</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="4"
+              placeholder="¿En qué puedo ayudarte?"
+              required
+            ></textarea>
+
+            <button type="submit" class="btn primary-btn submit-btn">
+              <span class="btn-text">Enviar mensaje</span>
+              <i class="fa-solid fa-paper-plane" aria-hidden="true"></i>
+            </button>
+            <p
+              class="form-status"
+              id="formStatus"
+              role="status"
+              aria-live="polite"
+            ></p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer-content">
+        <p class="footer-rotating" aria-live="polite">
+          <i class="fa-solid fa-heart"></i> Creado con dedicación
+        </p>
+        <div class="footer-socials">
+          <a
+            href="https://github.com/yasheyxs"
+            target="_blank"
+            rel="noopener"
+            aria-label="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a href="mailto:jazmingaidoyxs@gmail.com" aria-label="Email"
+            ><i class="fas fa-envelope"></i
+          ></a>
+          <span class="link-disabled" aria-label="LinkedIn próximamente"
+            ><i class="fab fa-linkedin-in"></i
+          ></span>
+        </div>
+      </div>
+    </footer>
+
+    <button class="back-to-top" id="backToTop" aria-label="Volver arriba">
+      <i class="fa-solid fa-chevron-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 900,
+        once: true,
+        offset: 100,
+        easing: "ease-out-cubic",
+      });
+    </script>
+    <script src="script.js"></script>
+  </body>
 </html>
