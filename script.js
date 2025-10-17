@@ -18,11 +18,11 @@ const prefersReducedMotion = window.matchMedia(
 // ===== Loader =====
 window.addEventListener("load", () => {
   if (loader) {
-    // Animación de salida del loader
+    // Animación de salida
     setTimeout(() => {
       loader.classList.add("hide");
 
-      // Esperar a que la animación termine y luego removerlo
+      // Esperar a que la animación termine y removerla
       setTimeout(() => {
         loader.remove();
 
@@ -140,7 +140,6 @@ serviceCards.forEach((card) => {
   card.addEventListener("focus", () => card.classList.add("visible"));
 });
 
-// ===== Hover adicional =====
 const projectCards = document.querySelectorAll(".project-card");
 projectCards.forEach((card) => {
   card.addEventListener("focus", () => card.classList.add("hovered"));
@@ -148,7 +147,7 @@ projectCards.forEach((card) => {
 });
 
 
-// ===== Texto rotativo en footer =====
+// ===== Texto rotativo del footer =====
 if (footerRotating) {
   const phrases = [
     "Creado con ❤️",
