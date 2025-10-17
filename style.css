@@ -1879,3 +1879,34 @@ body {
     width: min(340px, 92vw) !important;
   }
 }
+
+.contact-form .submit-btn,
+.contact-form .submit-btn * {
+  width: auto !important;
+  max-width: none !important;
+}
+
+.submit-btn {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 32px;
+  white-space: nowrap; 
+}
+
+@media (max-width: 420px) {
+  .submit-btn {
+    padding: 14px 28px;
+  }
+}
+
+.contact-form {
+  padding-top: 28px !important;
+}
+
+@media (min-width: 768px) {
+  .contact-form {
+    padding-top: 28px !important;
+  }
+}
