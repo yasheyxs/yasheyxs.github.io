@@ -50,6 +50,7 @@
       </div>
     </div>
     <div class="gradient-background" aria-hidden="true"></div>
+
     <header class="navbar" id="navbar">
       <div class="container nav-content">
         <a href="#inicio" class="brand" aria-label="Volver al inicio">
@@ -69,9 +70,16 @@
             <li><a href="#habilidades">Habilidades</a></li>
             <li><a href="#experiencia">Experiencia</a></li>
             <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#educacion">Educación</a></li>
             <li><a href="#contacto">Contacto</a></li>
+            <li>
+              <a href="#cv" class="highlight-link"
+                ><i class="fa-solid fa-file-pdf"></i> CV</a
+              >
+            </li>
           </ul>
         </nav>
+
         <button class="mobile-menu" id="mobileMenu" aria-label="Abrir menú">
           <span></span>
           <span></span>
@@ -103,6 +111,16 @@
             </p>
             <div class="hero-actions">
               <a href="#proyectos" class="btn primary-btn">Ver mis proyectos</a>
+              
+              <a
+                href="assets/cv/JAZMIN GAIDO CV.pdf"
+                class="btn primary-btn"
+                download
+                aria-label="Descargar currículum en PDF"
+              >
+                <i class="fa-solid fa-file-pdf"></i> Descargar CV
+              </a>
+
               <a href="#contacto" class="btn secondary-btn">Contáctame</a>
             </div>
           </div>
@@ -115,6 +133,48 @@
               <i class="fas fa-lightbulb"></i>
               <p>Innovación constante.</p>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sobre mí -->
+      <section id="sobre-mi" class="about" data-aos="fade-right">
+        <div class="container about-content">
+          <div class="about-image" data-aos="fade-right">
+            <div class="avatar" role="img" aria-label="Retrato de Jazmin Gaido">
+              <img src="assets/avatar.png" alt="Fotografía de Jazmin Gaido" />
+            </div>
+          </div>
+          <div class="about-text" data-aos="fade-left">
+            <h3>Sobre mí</h3>
+            <p>
+              Soy Analista de Sistemas graduada en IES Siglo 21 (Córdoba,
+              Argentina). Tengo experiencia en desarrollo web fullstack,
+              documentación funcional y digitalización de procesos. He trabajado
+              en proyectos reales como el sistema interno de gestión de pedidos
+              de Piccolo Burgers y mi proyecto de tesis: un sistema web para
+              restaurantes desarrollado con HTML, CSS, JavaScript, PHP y MySQL.
+            </p>
+            <blockquote>
+              “Busco seguir creciendo en el mundo IT, aprendiendo cada día algo
+              nuevo.”
+            </blockquote>
+            <ul class="about-highlights">
+              <li>
+                <i class="fa-solid fa-diagram-project" aria-hidden="true"></i
+                ><span>Gestión integral de proyectos tecnológicos.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i
+                ><span>Buenas prácticas de seguridad y documentación.</span>
+              </li>
+              <li>
+                <i class="fa-solid fa-users" aria-hidden="true"></i
+                ><span
+                  >Trabajo colaborativo con equipos multidisciplinarios.</span
+                >
+              </li>
+            </ul>
           </div>
         </div>
       </section>
@@ -175,48 +235,6 @@
                 técnicos y áreas de negocio, asegurando procesos eficientes.
               </p>
             </article>
-          </div>
-        </div>
-      </section>
-
-      <!-- Sobre mí -->
-      <section id="sobre-mi" class="about" data-aos="fade-right">
-        <div class="container about-content">
-          <div class="about-image" data-aos="fade-right">
-            <div class="avatar" role="img" aria-label="Retrato de Jazmin Gaido">
-              <img src="assets/avatar.png" alt="Fotografía de Jazmin Gaido" />
-            </div>
-          </div>
-          <div class="about-text" data-aos="fade-left">
-            <h3>Sobre mí</h3>
-            <p>
-              Soy Analista de Sistemas graduada en IES Siglo 21 (Córdoba,
-              Argentina). Tengo experiencia en desarrollo web fullstack,
-              documentación funcional y digitalización de procesos. He trabajado
-              en proyectos reales como el sistema interno de gestión de pedidos
-              de Piccolo Burgers y mi proyecto de tesis: un sistema web para
-              restaurantes desarrollado con HTML, CSS, JavaScript, PHP y MySQL.
-            </p>
-            <blockquote>
-              “Busco seguir creciendo en el mundo IT, aprendiendo cada día algo
-              nuevo.”
-            </blockquote>
-            <ul class="about-highlights">
-              <li>
-                <i class="fa-solid fa-diagram-project" aria-hidden="true"></i
-                ><span>Gestión integral de proyectos tecnológicos.</span>
-              </li>
-              <li>
-                <i class="fa-solid fa-shield-halved" aria-hidden="true"></i
-                ><span>Buenas prácticas de seguridad y documentación.</span>
-              </li>
-              <li>
-                <i class="fa-solid fa-users" aria-hidden="true"></i
-                ><span
-                  >Trabajo colaborativo con equipos multidisciplinarios.</span
-                >
-              </li>
-            </ul>
           </div>
         </div>
       </section>
@@ -446,7 +464,6 @@
         <div class="container">
           <h3>Experiencia</h3>
           <div class="experience-grid">
-
             <article
               class="experience-card"
               tabindex="0"
@@ -472,7 +489,7 @@
                 </li>
               </ul>
             </article>
-            
+
             <article
               class="experience-card"
               tabindex="0"
@@ -493,7 +510,6 @@
                 <li>Soporte técnico y digitalización de procesos.</li>
               </ul>
             </article>
-            
           </div>
         </div>
       </section>
@@ -750,6 +766,53 @@
         </div>
       </section>
     </main>
+
+    <!-- CV -->
+    <section id="cv" class="resume" data-aos="fade-up">
+      <div class="container resume-content">
+        <div class="resume-text" data-aos="fade-right">
+          <h3>Descarga mi CV</h3>
+          <p>
+            Conoce más sobre mi recorrido académico, experiencia laboral y
+            proyectos destacados en mi currículum actualizado. Estoy abierta a
+            nuevas oportunidades y colaboraciones tecnológicas.
+          </p>
+          <ul class="resume-highlights" aria-label="Aspectos destacados del CV">
+            <li>
+              <i class="fa-solid fa-briefcase" aria-hidden="true"></i>
+              Experiencia en desarrollo web fullstack y soporte técnico.
+            </li>
+            <li>
+              <i class="fa-solid fa-diagram-project" aria-hidden="true"></i>
+              Proyectos con enfoque en soluciones a medida y documentación
+              funcional.
+            </li>
+            <li>
+              <i class="fa-solid fa-earth-americas" aria-hidden="true"></i>
+              Disponibilidad para modalidades remotas e híbridas.
+            </li>
+          </ul>
+          <a
+            href="assets/cv/JAZMIN GAIDO CV.pdf"
+            class="btn primary-btn"
+            download
+            >Descargar CV</a
+          >
+        </div>
+        <div class="resume-preview" data-aos="fade-left" aria-hidden="true">
+          <div class="resume-card">
+            <div class="resume-card-header">
+              <i class="fa-solid fa-file-pdf"></i>
+              <span>CV actualizado</span>
+            </div>
+            <p>
+              Incluye habilidades técnicas, estudios, certificaciones y
+              experiencias relevantes.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <footer class="footer">
       <div class="container footer-content">
