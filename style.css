@@ -2013,3 +2013,59 @@ body {
     padding-top: 28px !important;
   }
 }
+
+@media (max-width: 480px) {
+  .project-card {
+    position: relative;
+    padding-top: 45px !important;
+  }
+
+  .project-tag {
+    top: 14px !important;
+    right: 14px !important;
+    font-size: 0.7rem !important;
+    padding: 5px 12px !important;
+  }
+
+  .project-card h4 {
+    margin-top: 6px !important;
+    font-size: 1.05rem !important;
+    line-height: 1.3;
+    word-break: break-word;
+  }
+}
+
+/* ==== Ajuste de espaciado para la sección CV ==== */
+.resume {
+  padding-top: 5px !important;
+  padding-bottom: 60px !important;
+}
+
+@media (max-width: 768px) {
+  .resume {
+    padding-top: 5px !important;
+    padding-bottom: 40px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  section.resume {
+    padding-top: 0 !important;
+    margin-top: 20px !important;
+  }
+
+  .resume .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+
+  .resume-content {
+    margin-top: 0 !important;
+  }
+
+  .projects {
+    padding-bottom: 20px !important;
+    margin-bottom: 0 !important;
+  }
+}
+
