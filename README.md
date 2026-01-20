@@ -1,4 +1,4 @@
-👋 ¡Hola! Soy Jazmín Abigail Gaido
+👋 ¡Hola! Soy Jazmin Abigail Gaido
 
 Analista de Sistemas Jr. con formación sólida en desarrollo web, soporte técnico y documentación funcional.
 Me apasiona combinar la programación, el diseño responsive y la resolución de problemas para crear soluciones prácticas y bien estructuradas.
