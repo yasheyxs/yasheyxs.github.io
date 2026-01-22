@@ -40,14 +40,21 @@ html {
 }
 
 body {
-  font-family: "Inter", "Open Sans", system-ui, -apple-system,
-    BlinkMacSystemFont, sans-serif;
+  font-family:
+    "Inter",
+    "Open Sans",
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
   background: var(--color-bg-dark);
   color: var(--color-text);
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;
-  transition: background 0.6s ease, color 0.6s ease;
+  transition:
+    background 0.6s ease,
+    color 0.6s ease;
 }
 
 h1,
@@ -78,12 +85,13 @@ ul {
 .gradient-background {
   position: fixed;
   inset: 0;
-  background: radial-gradient(
-      circle at 0% 0%,
-      rgba(243, 159, 90, 0.25),
-      transparent 50%
+  background:
+    radial-gradient(circle at 0% 0%, rgba(243, 159, 90, 0.25), transparent 50%),
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(102, 37, 73, 0.35),
+      transparent 55%
     ),
-    radial-gradient(circle at 80% 20%, rgba(102, 37, 73, 0.35), transparent 55%),
     radial-gradient(circle at 20% 80%, rgba(174, 68, 90, 0.2), transparent 55%),
     linear-gradient(135deg, rgba(29, 26, 57, 0.95), rgba(69, 25, 82, 0.9));
   z-index: -2;
@@ -325,13 +333,14 @@ ul {
   margin-left: 10px;
 }
 
-
 .mobile-menu span {
   width: 100%;
   height: 2px;
   background: var(--color-text);
   border-radius: 10px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 .mobile-menu.active span:nth-child(1) {
@@ -362,8 +371,6 @@ ul {
 [data-aos] {
   transform-origin: center center !important;
 }
-
-
 
 .hero-content {
   display: grid;
@@ -398,7 +405,9 @@ ul {
   filter: drop-shadow(0 12px 24px rgba(13, 10, 30, 0.35));
   opacity: 0;
   transform: translateY(20px) scale(0.85);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
   animation: float-icon 8s ease-in-out infinite;
 }
 
@@ -492,13 +501,11 @@ ul {
   margin-top: 30px;
 }
 
-
-
 .resume::before {
   content: "";
   position: absolute;
   inset: 0;
-  
+
   z-index: 0;
   pointer-events: none;
 }
@@ -739,7 +746,9 @@ section h3 {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(12px);
   text-align: center;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .service-card:hover {
@@ -799,7 +808,9 @@ section h3 {
   font-size: 2rem;
   margin: 0 auto 20px;
   box-shadow: 0 8px 24px rgba(174, 68, 90, 0.4);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .service-card:hover .service-icon {
@@ -920,7 +931,9 @@ section h3 {
   font-size: 1.4rem;
   opacity: 0;
   transform: translateY(8px) scale(0.7);
-  transition: transform 0.5s ease, opacity 0.5s ease;
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
   color: var(--color-highlight);
 }
 
@@ -1077,10 +1090,21 @@ section h3 {
   position: relative;
   overflow: hidden;
   will-change: transform, box-shadow;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
   transform-origin: center center;
   contain: layout paint;
-  min-height: 370px;
+}
+
+@media (min-width: 769px) {
+  .project-card {
+    height: auto;
+  }
+}
+
+.project-card {
+  overflow: hidden;
 }
 
 [data-theme="light"] .project-card {
@@ -1115,7 +1139,7 @@ section h3 {
 .project-tag {
   position: absolute;
   top: 20px;
-  right: 20px;
+  left: 20px;
   background: rgba(243, 159, 90, 0.2);
   color: var(--color-highlight);
   padding: 6px 14px;
@@ -1123,6 +1147,48 @@ section h3 {
   font-size: 0.75rem;
   letter-spacing: 1px;
   text-transform: uppercase;
+}
+
+.project-toggle {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  border: none;
+  background: none;
+  padding: 0;
+  margin: 0;
+
+  color: var(--color-text-muted);
+  font-size: 1.15rem;
+  line-height: 1;
+
+  cursor: pointer;
+  opacity: 0.65;
+
+  transition:
+    opacity 0.25s ease,
+    color 0.25s ease;
+}
+
+.project-toggle {
+  opacity: 0;
+}
+
+.project-card:hover .project-toggle,
+.project-toggle:focus-visible {
+  opacity: 0.9;
+}
+
+/* Feedback mínimo, no de botón */
+.project-card:hover .project-toggle,
+.project-toggle:focus-visible {
+  opacity: 1;
+  color: var(--color-highlight);
+}
+
+/* Eliminar estilos nativos de botón */
+.project-toggle:focus {
+  outline: none;
 }
 
 .project-card h4 {
@@ -1144,11 +1210,12 @@ section h3 {
   max-height: 0;
   opacity: 0;
   transform: translateY(10px);
-  transition: max-height 0.45s ease, opacity 0.45s ease, transform 0.45s ease;
+  transition:
+    max-height 0.45s ease,
+    opacity 0.45s ease,
+    transform 0.45s ease;
 }
-
-.project-card:is(:hover, :focus-within) .project-details {
-
+.project-card.expanded .project-details {
   max-height: 240px;
   opacity: 1;
   transform: translateY(0);
@@ -1387,7 +1454,9 @@ section h3 {
   background: rgba(17, 13, 35, 0.6);
   color: var(--color-text);
   font-size: 1rem;
-  transition: border 0.3s ease, transform 0.3s ease;
+  transition:
+    border 0.3s ease,
+    transform 0.3s ease;
 }
 
 [data-theme="light"] .contact-form input,
@@ -1408,7 +1477,9 @@ section h3 {
   color: var(--color-soft);
   font-weight: 500;
   opacity: 0;
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
 
 .form-status.success {
@@ -1482,7 +1553,10 @@ section h3 {
   align-items: center;
   justify-content: center;
   color: var(--color-soft);
-  transition: transform 0.35s ease, background 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    box-shadow 0.35s ease;
   position: relative;
   overflow: hidden;
 }
@@ -1538,7 +1612,10 @@ section h3 {
   opacity: 0;
   transform: translateY(15px);
   pointer-events: none;
-  transition: opacity 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
   z-index: 80;
 }
 
@@ -1691,7 +1768,9 @@ section h3 {
   justify-content: center;
   margin: 0 auto 20px;
   box-shadow: 0 8px 24px rgba(174, 68, 90, 0.4);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .service-card:hover .service-icon {
@@ -1800,7 +1879,9 @@ body.loading {
 
 .project-card {
   will-change: transform, box-shadow;
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
   transform-origin: center center;
 }
 
@@ -1861,7 +1942,9 @@ body.loading {
     min-height: auto;
   }
 
-  h1, h2, h3 {
+  h1,
+  h2,
+  h3 {
     line-height: 1.2;
     word-break: break-word;
   }
@@ -1878,15 +1961,16 @@ body.loading {
   }
 }
 
-
 @media (max-width: 420px) {
-  p, li {
+  p,
+  li {
     font-size: 0.95rem;
     line-height: 1.6;
   }
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden;
 }
 
@@ -1922,7 +2006,8 @@ html, body {
   display: block;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden !important;
 }
 
@@ -1939,7 +2024,8 @@ html, body {
   z-index: -2;
 }
 
-html, body {
+html,
+body {
   overflow-x: hidden !important;
   overscroll-behavior-x: none;
   touch-action: pan-y;
@@ -1995,7 +2081,7 @@ body {
   justify-content: center;
   gap: 12px;
   padding: 16px 32px;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
 @media (max-width: 420px) {
@@ -2069,3 +2155,64 @@ body {
   }
 }
 
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+/* === PROYECTOS: ALTURA UNIFORME === */
+.projects-grid {
+  align-items: stretch;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Contenido principal */
+.project-card > * {
+  flex-shrink: 0;
+}
+
+/* Descripción ocupa el espacio base */
+.project-card p {
+  flex-grow: 1;
+}
+
+/* Detalles NO afectan altura */
+.project-details {
+  list-style: none;
+  display: grid;
+  gap: 10px;
+  margin: 0 0 24px;
+  padding: 0;
+
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+
+  transform: translateY(-6px);
+  transition:
+    max-height 0.45s ease,
+    opacity 0.35s ease,
+    transform 0.35s ease;
+}
+
+/* Expandido */
+.project-card.expanded .project-details {
+  max-height: 260px; /* ajustable */
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Altura base uniforme */
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Zona de contenido base */
+.project-card p {
+  min-height: 88px;
+}

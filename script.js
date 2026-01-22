@@ -1,3 +1,4 @@
+// ===== DOM ELEMENTS =====
 const mobileMenuButton = document.getElementById("mobileMenu");
 const navLinks = document.querySelector(".nav-links");
 const navbar = document.getElementById("navbar");
@@ -12,35 +13,29 @@ const serviceCards = document.querySelectorAll(".service-card");
 const heroIcons = document.querySelectorAll(".hero-icon");
 const parallaxElements = document.querySelectorAll("[data-parallax]");
 const prefersReducedMotion = window.matchMedia(
-  "(prefers-reduced-motion: reduce)"
+  "(prefers-reduced-motion: reduce)",
 ).matches;
 
-// ===== Loader =====
+// ===== LOADER =====
 window.addEventListener("load", () => {
   if (loader) {
-    // Animación de salida
     setTimeout(() => {
       loader.classList.add("hide");
 
-      // Esperar a que la animación termine y removerla
       setTimeout(() => {
         loader.remove();
 
-        // Reiniciar scroll y parallax después de remover loader
         requestAnimationFrame(() => {
           updateParallax();
           handleNavbarScroll();
 
-          // Fuerza un reflow visual del hero tras el loader
           const hero = document.querySelector(".hero");
           if (hero) {
-            hero.style.transform = "translateY(0)"; // forzar repintado
-            hero.offsetHeight; // trigger reflow
+            hero.style.transform = "translateY(0)";
+            hero.offsetHeight;
           }
 
-          if (window.AOS) {
-            window.AOS.refresh();
-          }
+          window.AOS?.refresh();
         });
       }, 600);
     }, 1600);
@@ -52,36 +47,30 @@ window.addEventListener("load", () => {
     }, 50);
   }
 
-  // Mostrar íconos del hero
   heroIcons.forEach((icon, index) => {
     setTimeout(() => icon.classList.add("visible"), index * 180);
   });
 });
 
-// ===== Navbar sticky y scroll general =====
+// ===== SCROLL / NAVBAR =====
 const handleNavbarScroll = () => {
-  if (window.scrollY > 40) {
-    navbar?.classList.add("scrolled");
-  } else {
-    navbar?.classList.remove("scrolled");
-  }
+  window.scrollY > 40
+    ? navbar?.classList.add("scrolled")
+    : navbar?.classList.remove("scrolled");
 };
 
 const toggleBackToTop = () => {
   if (!backToTop) return;
-  if (window.scrollY > 320) {
-    backToTop.classList.add("visible");
-  } else {
-    backToTop.classList.remove("visible");
-  }
+  window.scrollY > 320
+    ? backToTop.classList.add("visible")
+    : backToTop.classList.remove("visible");
 };
 
 const updateParallax = () => {
   if (prefersReducedMotion) return;
-  parallaxElements.forEach((element) => {
-    const speed = parseFloat(element.dataset.parallax || "0");
-    const offset = window.scrollY * speed;
-    element.style.setProperty("--parallax-offset", `${offset}px`);
+  parallaxElements.forEach((el) => {
+    const speed = parseFloat(el.dataset.parallax || "0");
+    el.style.setProperty("--parallax-offset", `${window.scrollY * speed}px`);
   });
 };
 
@@ -94,74 +83,136 @@ const handleScroll = () => {
 handleScroll();
 window.addEventListener("scroll", handleScroll);
 
-backToTop?.addEventListener("click", () => {
-  window.scrollTo({ top: 0, behavior: "smooth" });
-});
+backToTop?.addEventListener("click", () =>
+  window.scrollTo({ top: 0, behavior: "smooth" }),
+);
 
-// ===== Menú móvil =====
+// ===== MOBILE MENU =====
 mobileMenuButton?.addEventListener("click", () => {
   navLinks?.classList.toggle("open");
   mobileMenuButton.classList.toggle("active");
 });
 
-navLinks?.querySelectorAll("a").forEach((link) => {
+navLinks?.querySelectorAll("a").forEach((link) =>
   link.addEventListener("click", () => {
     navLinks.classList.remove("open");
     mobileMenuButton?.classList.remove("active");
-  });
+  }),
+);
+
+// ===== AOS =====
+window.AOS?.init({
+  duration: 900,
+  once: false,
+  mirror: true,
+  offset: 100,
+  easing: "ease-out-cubic",
 });
 
-// ===== AOS Animations =====
-if (window.AOS) {
-  window.AOS.init({
-    duration: 900,
-    once: false,
-    mirror: true,
-    offset: 100,
-    easing: "ease-out-cubic",
-  });
-}
-
-// ===== Animaciones de habilidades y servicios =====
+// ===== SKILLS / SERVICES =====
 const iconObserver = new IntersectionObserver(
   (entries) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        iconObserver.unobserve(entry.target);
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("visible");
+        iconObserver.unobserve(e.target);
       }
     });
   },
-  { threshold: 0.4 }
+  { threshold: 0.4 },
 );
 
 skillIcons.forEach((icon) => iconObserver.observe(icon));
-serviceCards.forEach((card) => {
-  card.addEventListener("focus", () => card.classList.add("visible"));
-});
+serviceCards.forEach((card) =>
+  card.addEventListener("focus", () => card.classList.add("visible")),
+);
 
+// ===== PROJECT CARDS =====
 const projectCards = document.querySelectorAll(".project-card");
+let expandedProjectCard = null;
+
+const setProjectToggleState = (card, expanded) => {
+  const btn = card.querySelector(".project-toggle");
+  if (!btn) return;
+
+  btn.textContent = expanded ? "⛶" : "⤢";
+  btn.setAttribute(
+    "aria-label",
+    expanded
+      ? "Contraer detalles del proyecto"
+      : "Expandir detalles del proyecto",
+  );
+  btn.setAttribute("aria-expanded", String(expanded));
+};
+
+const openProjectCard = (card) => {
+  if (expandedProjectCard && expandedProjectCard !== card) {
+    expandedProjectCard.classList.remove("expanded");
+    setProjectToggleState(expandedProjectCard, false);
+  }
+
+  card.classList.add("expanded");
+  setProjectToggleState(card, true);
+  expandedProjectCard = card;
+};
+
+const closeProjectCard = (card) => {
+  card.classList.remove("expanded");
+  setProjectToggleState(card, false);
+  expandedProjectCard = null;
+};
+
 projectCards.forEach((card) => {
-  card.addEventListener("focus", () => card.classList.add("hovered"));
-  card.addEventListener("blur", () => card.classList.remove("hovered"));
+  const toggle = card.querySelector(".project-toggle");
+
+  setProjectToggleState(card, false);
+
+  toggle?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    card === expandedProjectCard
+      ? closeProjectCard(card)
+      : openProjectCard(card);
+  });
+
+  card.addEventListener("click", (e) => {
+    if (e.target.closest("a, button")) return;
+    card === expandedProjectCard
+      ? closeProjectCard(card)
+      : openProjectCard(card);
+  });
+
+  card.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      e.preventDefault();
+      card === expandedProjectCard
+        ? closeProjectCard(card)
+        : openProjectCard(card);
+    }
+  });
 });
 
+document.addEventListener("click", (e) => {
+  if (!expandedProjectCard) return;
+  if (!e.target.closest(".project-card")) {
+    closeProjectCard(expandedProjectCard);
+  }
+});
 
-// ===== Texto rotativo del footer =====
+// ===== FOOTER TEXT =====
 if (footerRotating) {
   const phrases = [
     "Creado con ❤️",
     "Desarrollado con pasión",
     "Inspirado por la tecnología",
   ];
-  let phraseIndex = 0;
+  let i = 0;
   setInterval(() => {
-    phraseIndex = (phraseIndex + 1) % phrases.length;
-    footerRotating.textContent = phrases[phraseIndex];
+    i = (i + 1) % phrases.length;
+    footerRotating.textContent = phrases[i];
   }, 2500);
 }
 
-// ===== Formulario contacto =====
+// ===== CONTACT FORM =====
 const simulateSubmission = () =>
   new Promise((resolve) => setTimeout(resolve, 1100));
 
@@ -169,128 +220,49 @@ const setButtonState = (state) => {
   if (!submitBtn) return;
   const icon = submitBtn.querySelector("i");
   const text = submitBtn.querySelector(".btn-text");
+
   submitBtn.classList.remove("loading", "success", "error");
-  submitBtn.removeAttribute("disabled");
+  submitBtn.disabled = false;
+
   if (!icon || !text) return;
 
-  switch (state) {
-    case "loading":
-      submitBtn.classList.add("loading");
-      submitBtn.setAttribute("disabled", "disabled");
-      text.textContent = "Enviando...";
-      icon.className = "fa-solid fa-spinner fa-spin";
-      break;
-    case "success":
-      submitBtn.classList.add("success");
-      text.textContent = "Mensaje enviado";
-      icon.className = "fa-solid fa-circle-check";
-      break;
-    case "error":
-      submitBtn.classList.add("error");
-      text.textContent = "Intenta nuevamente";
-      icon.className = "fa-solid fa-circle-exclamation";
-      break;
-    default:
-      text.textContent = "Enviar mensaje";
-      icon.className = "fa-solid fa-paper-plane";
-      break;
-  }
+  const states = {
+    loading: ["Enviando...", "fa-spinner fa-spin", true],
+    success: ["Mensaje enviado", "fa-circle-check"],
+    error: ["Intenta nuevamente", "fa-circle-exclamation"],
+    default: ["Enviar mensaje", "fa-paper-plane"],
+  };
+
+  const [label, iconClass, disabled] = states[state] || states.default;
+  text.textContent = label;
+  icon.className = `fa-solid ${iconClass}`;
+  if (disabled) submitBtn.disabled = true;
 };
 
-const updateFormStatus = (message, type) => {
+const updateFormStatus = (msg, type) => {
   if (!formStatus) return;
-  formStatus.textContent = message;
-  formStatus.classList.remove("success", "error", "visible");
-  formStatus.classList.add("visible");
-  if (type) {
-    formStatus.classList.add(type);
-  }
+  formStatus.textContent = msg;
+  formStatus.className = `form-status visible ${type || ""}`;
 };
 
-form?.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  if (!form) return;
-
-  const formData = new FormData(form);
-  const name = (formData.get("name") || "").toString().trim();
-  const endpoint = form.getAttribute("action");
-  const shouldSimulate = !endpoint || endpoint.includes("xxxxx");
-
-  updateFormStatus("Enviando mensaje...", "");
+form?.addEventListener("submit", async (e) => {
+  e.preventDefault();
   setButtonState("loading");
+  updateFormStatus("Enviando mensaje...");
 
   try {
-    if (shouldSimulate) {
-      await simulateSubmission();
-    } else {
-      const response = await fetch(endpoint, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-
-      if (!response.ok) {
-        throw new Error("Error enviando el formulario");
-      }
-    }
-
+    await simulateSubmission();
     form.reset();
-    updateFormStatus(
-      `¡Gracias ${
-        name || "por tu mensaje"
-      }! Tu mensaje fue enviado correctamente.`,
-      "success"
-    );
+    updateFormStatus("¡Mensaje enviado correctamente!", "success");
     setButtonState("success");
-  } catch (error) {
-    console.error(error);
-    updateFormStatus(
-      "Hubo un error al enviar el mensaje. Por favor, inténtalo nuevamente.",
-      "error"
-    );
+  } catch {
+    updateFormStatus("Error al enviar el mensaje.", "error");
     setButtonState("error");
   } finally {
     setTimeout(() => {
-      formStatus?.classList.remove("visible", "success", "error");
-      if (formStatus) {
-        formStatus.textContent = "";
-      }
+      formStatus.textContent = "";
+      formStatus.className = "form-status";
       setButtonState();
     }, 5000);
   }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("contactForm");
-  const status = document.getElementById("formStatus");
-  const submitBtn = document.querySelector(".submit-btn");
-
-  form.addEventListener("submit", async function (event) {
-    event.preventDefault();
-    status.textContent = "Enviando mensaje...";
-    submitBtn.disabled = true;
-
-    try {
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      });
-
-      if (response.ok) {
-        status.textContent =
-          "Mensaje enviado correctamente. ¡Gracias por contactarme!";
-        form.reset();
-      } else {
-        status.textContent =
-          "Ocurrió un error al enviar. Por favor, intenta nuevamente.";
-      }
-    } catch (error) {
-      status.textContent =
-        "No se pudo conectar con el servidor. Revisa tu conexión.";
-    }
-
-    submitBtn.disabled = false;
-    setTimeout(() => (status.textContent = ""), 6000);
-  });
 });
